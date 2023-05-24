@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>I Love You</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 200px;
+      font-family: Arial, sans-serif;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s;
+    }
+    
+    .overlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .popup {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+    }
+
+    @media only screen and (max-width: 500px) {
+      body {
+        margin-top: 100px;
+      }
+      .popup {
+        max-width: 90%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <button id="loveButton">Click Me!</button>
+  
+  <div class="overlay" id="overlay">
+    <div class="popup">
+      <h2>Hi, Lablab</h2>
+      <button id="closeButton">Next</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="secondOverlay">
+    <div class="popup">
+      <h2>I Love You!</h2>
+      <button id="closeSecondButton">Infographics</button>
+    </div>
+  </div>
+
+  <script>
+    var loveButton = document.getElementById("loveButton");
+    var overlay = document.getElementById("overlay");
+    var closeButton = document.getElementById("closeButton");
+    var secondOverlay = document.getElementById("secondOverlay");
+    var closeSecondButton = document.getElementById("closeSecondButton");
+
+    loveButton.addEventListener("click", function() {
+      overlay.classList.add("show");
+    });
+
+    closeButton.addEventListener("click", function() {
+      overlay.classList.remove("show");
+      secondOverlay.classList.add("show");
+    });
+
+    closeSecondButton.addEventListener("click", function() {
+    window.open("https://drive.google.com/drive/folders/1_TAkFA3hHG1I19zlrbHcEoYPkTUIWeOD?usp=sharing", "_blank")
+      secondOverlay.classList.remove("show");
+    });
+
+  </script>
+</body>
+</html>
